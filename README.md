@@ -38,7 +38,8 @@ CREATE TABLE `HW4`.`member` (
   PRIMARY KEY (`id`));
  ``` 
  
-6.前端介面操作
+6.前端介面操作，需下載 https://github.com/ChiuHuai/HW4_SpringBoot_React_Bootstrap_Front 內的檔案
+
 
 在 VScode 內的 terminal: 
 
