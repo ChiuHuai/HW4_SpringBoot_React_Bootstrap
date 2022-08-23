@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -22,8 +23,12 @@ public class UserService {
     }
 
     public User getUserById(Long id) {
-        return this.userRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException());
+        Optional<User> optionalUser = this.userRepository.findById(id);
+        if (optionalUser.isPresent()) {
+            return optionalUser.get();
+        } else {
+            return null;
+        }
     }
 
     public String createUser(CreateUserRequest request) {
@@ -52,19 +57,24 @@ public class UserService {
             return "age should not be blank.";
         }
 
-        User user = this.userRepository.findById(request.getId())
-                .orElseThrow(() -> new EntityNotFoundException());
+        Optional<User> optionalUser = this.userRepository.findById(request.getId());
+
+        if (optionalUser.isPresent()) {
+            User user = optionalUser.get();
+            user.setName(request.getName());
+            user.setAge(request.getAge());
+
+            this.userRepository.save(user);
+            return " data updated successfully.";
+        } else {
+            return " data updated unsuccessfully.";
+        }
 
         //注釋原因，id為自動產生，且從前端抓取，也沒有開放給使用者填寫，所以不會為null
 //        if (null == user) {
 //            return "Fail";
 //        }
 
-        user.setName(request.getName());
-        user.setAge(request.getAge());
-
-        this.userRepository.save(user);
-        return " data updated successfully.";
     }
 
     public void deleteUserById(Long id) {
