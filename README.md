@@ -14,7 +14,7 @@
 
 1.將此專案下載或clone後，在 IDE 打開 pom.xml。
 
-2.開啟 Postman，import HW3-1_H2_JPA.postman_collection.json
+2.開啟 Postman，import HW4.postman_collection.json
 
 3.回到 IDE ，執行src/main/java/com.HW4_SpringBoot_React 內的 Hw4SpringBootReactApplication
 
@@ -28,6 +28,16 @@
 
 5.連線至MySQL查看資料
 
+建立表格(member)
+
+```sql=1
+CREATE TABLE `HW4`.`member` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `age` INT NULL,
+  PRIMARY KEY (`id`));
+ ``` 
+ 
 6.前端介面操作
 
 在 VScode 內的 terminal: 
