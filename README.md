@@ -32,9 +32,13 @@
 
 在 VScode 內的 terminal: 
 
-cd 到
+cd 到 hw4-springboot-react-front 資料夾位置
+
 npm install
+
 npm start
+
+瀏覽器: http://localhost:3000/
 
 <img width="500" alt="Screen Shot 2022-08-23 at 1 36 10 AM" src="https://user-images.githubusercontent.com/80444687/185990759-585279ce-7f73-47f8-8512-f234b5222d57.png">
 
